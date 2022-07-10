@@ -8,7 +8,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageHeaderComponent } from './utils/page-header/page-header.component';
-import { ParagraphCapitalPipe } from './pipes/paragraph-capital.pipe';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CostumersComponent } from './components/costumers/costumers.component';
 import { HttpComponent } from './components/http/http.component';
@@ -35,7 +34,6 @@ import { ContactsFilterPipe } from './pipes/contacts-filter.pipe';
     ContactsComponent,
     FooterComponent,
     PageHeaderComponent,
-    ParagraphCapitalPipe,
     PageNotFoundComponent,
     CostumersComponent,
     HttpComponent,
