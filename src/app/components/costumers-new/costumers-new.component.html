@@ -1,0 +1,187 @@
+<app-page-header
+  title="Costumers"
+  description="Add a new costumer"
+  icon="bi bi-person-fill"
+></app-page-header>
+
+<div class="row mt-5">
+  <div class="col-12">
+    <form
+      action=""
+      novalidate="novalidate"
+      autocomplete="off"
+      (ngSubmit)="onSubmit(costumerForm)"
+      #costumerForm="ngForm"
+    >
+      <div class="row justify-content-center">
+        <div class="col-md-5 mb-3">
+          <label for="firstName">
+            <span class="text-danger me-1">* </span>
+            <span>First Name</span>
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="form.firstName"
+            #fnf="ngModel"
+            required
+            minlength="2"
+            id="firstName"
+            name="firstName"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': fnf.touched && fnf.valid,
+              'is-invalid': fnf.touched && fnf.invalid
+            }"
+          />
+          <div class="invalid-feedback" *ngIf="fnf.errors?.['required']">
+            First name is required
+          </div>
+          <div class="invalid-feedback" *ngIf="fnf.errors?.['minlength']">
+            First name must be at least
+            {{fnf.errors?.['minlength'].requiredLength}} characters long
+          </div>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="lastName">
+            <span class="text-danger me-1">* </span>
+            <span>Last Name</span>
+          </label>
+          <input
+            [(ngModel)]="form.lastName"
+            #lnf="ngModel"
+            type="text"
+            required
+            minlength="2"
+            id="lastName"
+            name="lastName"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': lnf.touched && lnf.valid,
+              'is-invalid': lnf.touched && lnf.invalid
+            }"
+          />
+          <div class="invalid-feedback" *ngIf="lnf.errors?.['required']">
+            Last name is required
+          </div>
+          <div class="invalid-feedback" *ngIf="lnf.errors?.['minlength']">
+            Last name must be at least
+            {{lnf.errors?.['minlength'].requiredLength}} characters long
+          </div>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="firstName">
+            <span class="text-danger me-1">* </span>
+            <span>Email</span>
+          </label>
+          <input
+            [(ngModel)]="form.email"
+            #ef="ngModel"
+            type="text"
+            required
+            pattern="^([a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,6})$"
+            minlength="2"
+            id="email"
+            name="email"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': ef.touched && ef.valid,
+              'is-invalid': ef.touched && ef.invalid
+            }"
+          />
+          <div class="invalid-feedback" *ngIf="ef.errors?.['required']">
+            Email is required
+          </div>
+          <div class="invalid-feedback" *ngIf="ef.errors?.['pattern']">
+            Email must be a valid email
+          </div>
+          <div class="invalid-feedback" *ngIf="ef.errors?.['minlength']">
+            Email must be at least
+            {{ef.errors?.['minlength'].requiredLength}} characters long
+          </div>
+        </div>
+        <div class="col-md-5 mb-3">
+          <label for="firstName">
+            <span class="text-danger me-1">* </span>
+            <span>Phone</span>
+          </label>
+          <input
+            [(ngModel)]="form.phone"
+            #pf="ngModel"
+            type="text"
+            required
+            pattern="^0[2-9]\d{7,8}$"
+            minlength="6"
+            id="phone"
+            name="phone"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': pf.touched && pf.valid,
+              'is-invalid': pf.touched && pf.invalid
+            }"
+          />
+          <div class="invalid-feedback" *ngIf="pf.errors?.['required']">
+            Phone is required
+          </div>
+          <div class="invalid-feedback" *ngIf="pf.errors?.['minlength']">
+            Phone must be at least
+            {{pf.errors?.['minlength'].requiredLength}} characters long
+          </div>
+          <div class="invalid-feedback" *ngIf="pf.errors?.['pattern']">
+            Phone must be a valid phone
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10 mb-3">
+          <label for="notes">Address</label>
+          <textarea
+            [(ngModel)]="form.address"
+            #af="ngModel"
+            name="address"
+            id="address"
+            rows="5"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': af.touched && af.valid,
+              'is-invalid': af.touched && af.invalid
+            }"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-10 mb-3">
+          <label for="notes">Notes</label>
+          <textarea
+            [(ngModel)]="form.notes"
+            #nf="ngModel"
+            name="notes"
+            id="notes"
+            rows="5"
+            class="form-control"
+            [ngClass]="{
+              'is-valid': nf.touched && nf.valid,
+              'is-invalid': nf.touched && nf.invalid
+            }"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="bg-light p-3 text-center">
+          <a routerLink=".." class="btn btn-secondary">Cancel</a>
+          <input
+            type="button"
+            value="Reset"
+            (click)="reset(costumerForm)"
+            class="btn btn-secondary ms-3"
+          />
+          <input
+            type="submit"
+            value="Save"
+            [disabled]="costumerForm.invalid"
+            class="btn btn-primary ms-3"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

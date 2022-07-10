@@ -1,0 +1,48 @@
+<app-page-header
+  icon="bi bi-people-fill"
+  title="contacts"
+  description="company employees details"
+></app-page-header>
+<p *ngIf="contacts.length < 1">No contacts</p>
+
+<div class="row mt-4">
+  <div class="col-8">
+    <input
+      [(ngModel)]="inputName"
+      type="text"
+      class="form-control"
+      placeholder="Search costumer by first name"
+    />
+  </div>
+
+  <table
+    *ngIf="contacts.length >= 1"
+    class="table table-bordered align-middle mt-3"
+  >
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Birthday</th>
+        <th>Phones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts | contactsFilter: 'name':inputName">
+        <td>{{ contacts.indexOf(contact) + 1 }}</td>
+        <td>{{ contact.name }}</td>
+        <td><a [href]="'mailto:' + contact.email"></a>{{ contact.email }}</td>
+        <td>{{ contact.birthday | date: "dd-MM-yyyy" }}</td>
+        <td>
+          <ul *ngFor="let phone of contact.phones">
+            <li>
+              <a [href]="'tel:' + phone"></a>
+              {{ phone }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

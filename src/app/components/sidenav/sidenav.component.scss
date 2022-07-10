@@ -1,0 +1,12 @@
+li:hover {
+  border-radius: 15px 0 0 15px;
+  overflow: hidden;
+  background-color: black;
+  box-shadow: -5px 5px 10px 3px rgba(0, 0, 0, 0.79);
+}
+
+.active {
+  background-color: black;
+  box-shadow: -5px 5px 10px 3px rgba(0, 0, 0, 0.79);
+  border-radius: 15px 0 0 15px;
+}
